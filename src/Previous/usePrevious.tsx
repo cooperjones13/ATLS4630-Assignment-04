@@ -3,10 +3,10 @@
 import { useRef, useEffect} from "react";
 
 export default function usePrevious(value:number|string){
-    const previousVal = useRef<number|string>("")
+    const previousVal = useRef<number|string>("") // We dont want to rerender if the value changes
 
     useEffect(()=>{
-        previousVal.current = value
+        previousVal.current = value //store value on re-render
     }, [value])
 
     return previousVal.current

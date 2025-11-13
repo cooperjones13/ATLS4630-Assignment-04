@@ -7,16 +7,16 @@ export default function useTypewriter(newVal:string, debounceTime:number){ //Tak
     const intervalRef = useRef<number>(undefined)
 
     useEffect(()=>{
-        if(intervalRef.current){
+        if(intervalRef.current){ //if the input text changes before typewriter is done, clear interval
             clearInterval(intervalRef.current)
         }
 
         let index = 0;
-        intervalRef.current = setInterval(()=>{
+        intervalRef.current = setInterval(()=>{ //for each letter, update state and loop
             setDisplayedText(newVal.slice(0, index))
             index++
             if(index === newVal.length+1){
-                clearInterval(intervalRef.current)
+                clearInterval(intervalRef.current) // once we hit the end of the word, clear the interval and stop the loop
             }
 
         }, debounceTime)

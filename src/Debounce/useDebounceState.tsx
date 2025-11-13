@@ -9,10 +9,11 @@ export default function useDebounceState(initVal:string, debounceTime:number){ /
             console.log(`Timeout (id: ${ref.current}) cleared`)
             clearTimeout(ref.current)
         }
+        //Create timeout
         ref.current = setTimeout(()=>{
-                setValue(newVal)
+                setValue(newVal) //update state
                 console.log(`Timeout (id: ${ref.current}) complete - Value is now: ${newVal}`)
-                ref.current = undefined;
+                ref.current = undefined; //set timeout ref to undefined so its ready to run again on change
             },debounceTime)
         console.log(`New Timeout (id: ${ref.current}) set for ${debounceTime}ms - new value will be: ${newVal}`)
         
