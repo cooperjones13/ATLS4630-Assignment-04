@@ -1,0 +1,20 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.container{
+  background-color: #333;
+  padding: 32px;
+  margin: 16px;
+  border-radius: 32px;
+  border-style: solid;
+  border-color: white;
+  border-width: 2px;
+}
+
+.container h2{
+  margin-top: 0;
+}
